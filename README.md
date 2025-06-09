@@ -8,16 +8,18 @@ Proyek ini mengimplementasikan sistem gambar dengan menggunakan teknik deep lear
 ---
 ## Dataset
 
-Proyek ini menggunakan [dataset] (https://www.kaggle.com/datasets/ibnurajuhumam/bersih-kotor-dataset) dari Kaggle dengan 2 kelas, yang berisi lebih dari 5400 gambar yang terdistribusi sebagai berikut:
+Proyek ini menggunakan [dataset](https://www.kaggle.com/datasets/ibnurajuhumam/bersih-kotor-dataset) dari Kaggle dengan 2 kelas, yang berisi lebih dari 5400 gambar yang terdistribusi sebagai berikut:
 
 1. clean: 2700
 2. dirty: 2700
 
 ### **Contoh Gambar untuk Masing-Masing Kelas**
 1. Dirty Data
+
    ![dirty-data](https://github.com/user-attachments/assets/fc55eb51-4a2f-4825-9965-0f4696a827c5)
 
-2. Clean Data
+3. Clean Data
+
    ![clean-data](https://github.com/user-attachments/assets/e546af13-dfd4-4a0a-9c66-376d368fee62)
 
 ---
@@ -54,13 +56,13 @@ Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base m
   - Output layer (1 unit) with Sigmoid activation (for binary classification)
 
 ### Training Parameters for Actual Training
-**Optimizer**: Adam (learning rate: 0.0005)
-**Loss Function**: Binary Crossentropy.
-**Epochs**: 30
-**Callbacks**: 
-- earlystop (EarlyStopping): Memantau kehilangan validasi dan menghentikan pelatihan lebih awal (pencegahan overfitting)
-- checkpoint (ModelCheckpoint): callback Keras yang digunakan untuk menyimpan model saat pelatihan, biasanya saat validasi mencapai performa terbaik.
-- accuracy_threshold (LambdaCallback): callback yang digunakan untuk menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%.
+- **Optimizer**: Adam (learning rate: 0.0005)
+- **Loss Function**: Binary Crossentropy.
+- **Epochs**: 30
+- **Callbacks**: 
+   - earlystop (EarlyStopping): Memantau kehilangan validasi dan menghentikan pelatihan lebih awal (pencegahan overfitting)
+   - checkpoint (ModelCheckpoint): callback Keras yang digunakan untuk menyimpan model saat pelatihan, biasanya saat validasi mencapai performa terbaik.
+   - accuracy_threshold (LambdaCallback): callback yang digunakan untuk menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%.
 
 ### Model Performance for Actual Training
 - **Initial Training Accuracy**: 0.8270 (Epoch 1)
@@ -80,12 +82,12 @@ Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base m
 - **Input Shape**: 224×224×3 RGB images
 
 ### Training Parameters for Fine-Tuning
-**Optimizer**: Adam (learning rate: 0.00001)  
-**Loss Function**: Binary Crossentropy  
-**Epochs**: 10  
-**Callbacks**:  
-- **earlystop (EarlyStopping)**: Memantau kehilangan validasi dan menghentikan pelatihan lebih awal untuk mencegah overfitting  
-- **accuracy_threshold (LambdaCallback)**: Callback yang menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%  
+- **Optimizer**: Adam (learning rate: 0.00001)  
+- **Loss Function**: Binary Crossentropy  
+- **Epochs**: 10  
+- **Callbacks**:  
+   - earlystop (EarlyStopping): Memantau kehilangan validasi dan menghentikan pelatihan lebih awal untuk mencegah overfitting  
+   - accuracy_threshold (LambdaCallback): Callback yang menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%  
 
 ### Model Performance for Fine-Tuning
 - **Initial Training Accuracy**: 0.8382 (Epoch 1)  
