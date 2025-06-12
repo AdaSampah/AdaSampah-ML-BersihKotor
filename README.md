@@ -64,7 +64,7 @@ Model ini menggunakan **Transfer Learning** dengan MobileNetV2 sebagai base mode
    - checkpoint (ModelCheckpoint): callback Keras yang digunakan untuk menyimpan model saat pelatihan, biasanya saat validasi mencapai performa terbaik.
    - accuracy_threshold (LambdaCallback): callback yang digunakan untuk menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%.
 
-### Model Performance for Actual Training
+### Model Performance for Initial Training
 - **Initial Training Accuracy**: 0.8231 (Epoch 1)
 - **Final Training Accuracy (Best Model)**: 0.9515
 - **Validation Accuracy (Best Model)**: 0.9420
