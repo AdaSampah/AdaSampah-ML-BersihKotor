@@ -55,7 +55,7 @@ Model ini menggunakan **Transfer Learning** dengan MobileNetV2 sebagai base mode
   - Dropout layer (0.3)
   - Output layer (1 unit) with Sigmoid activation (for binary classification)
 
-### Training Parameters for Actual Training
+### Training Parameters for Initial Training
 - **Optimizer**: Adam (learning rate: 0.0005)
 - **Loss Function**: Binary Crossentropy.
 - **Epochs**: 30
