@@ -24,16 +24,16 @@ Proyek ini menggunakan [dataset](https://www.kaggle.com/datasets/ibnurajuhumam/b
 
 ---
 ## Data Distribution
-Dataset dalam proyek ini dipecah dengan komposisi 80 (training), 10 (validation), 10 (testing)
+Dataset dalam proyek ini dipecah dengan komposisi 70% (training), 15% (validation), 15% (testing)
 
 | Set   | Label | Jumlah |
-|-------|-------|--------|
-| Test  | Clean | 259    |
-| Test  | Dirty | 281    |
-| Train | Clean | 2177   |
-| Train | Dirty | 2143   |
-| Val   | Clean | 264    |
-| Val   | Dirty | 276    |
+|-------|--------|--------|
+| Test  | Clean  | 394    |
+| Test  | Dirty  | 416    |
+| Train | Clean  | 1910   |
+| Train | Dirty  | 1870   |
+| Val   | Clean  | 396    |
+| Val   | Dirty  | 414    |
 
 ---
 
@@ -43,7 +43,7 @@ Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base m
 
 ### Model Configuration
 - **Base Model**:
-  - EfficientNetB0 pretrained on ImageNet
+  - MobileNetV2 pretrained on ImageNet
   - Input shape: (224, 224, 3)
   - `include_top=False` (tanpa fully connected layer bawaan)
   - All layers frozen (`trainable=False`)
@@ -65,18 +65,18 @@ Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base m
    - accuracy_threshold (LambdaCallback): callback yang digunakan untuk menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%.
 
 ### Model Performance for Actual Training
-- **Initial Training Accuracy**: 0.8270 (Epoch 1)
-- **Final Training Accuracy**: 0.9789
-- **Validation Accuracy**: 0.9537~
+- **Initial Training Accuracy**: 0.8231 (Epoch 1)
+- **Final Training Accuracy (Best Model)**: 0.9515
+- **Validation Accuracy (Best Model)**: 0.9420
 
 ---
 ## Model Architecture and Fine-Tuning 
 
-Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base model:
+Model ini menggunakan **Transfer Learning** dengan MobileNetV2 sebagai base model:
 
 ### Model Configuration
 - **Base Model**:
-  - EfficientNetB0 pretrained on ImageNet
+  - MobileNetV2 pretrained on ImageNet
   - Input shape: (224, 224, 3)
   - Layer ke-0 hingga ke-99 dibekukan (`trainable=False`) -> Hanya fine-tune dari layer ke-100 ke atas 
 - **Input Shape**: 224×224×3 RGB images
@@ -90,10 +90,10 @@ Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base m
    - accuracy_threshold (LambdaCallback): Callback yang menghentikan pelatihan secara otomatis jika akurasi dan val_accuracy sudah lebih besar dari 95%  
 
 ### Model Performance for Fine-Tuning
-- **Initial Training Accuracy**: 0.8382 (Epoch 1)  
-- **Final Training Accuracy**: 0.9474
-- **Final Validation Accuracy**: 0.9370  
-- **Testing Accuracy**: 0.9574 
+- **Initial Training Accuracy**: 0.8781 (Epoch 1)  
+- **Final Training Accuracy**: 0.9485
+- **Final Validation Accuracy**: 0.9383  
+- **Testing Accuracy**: 0.9580 
 ---
 
 
