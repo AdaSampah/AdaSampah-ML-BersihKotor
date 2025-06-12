@@ -39,7 +39,7 @@ Dataset dalam proyek ini dipecah dengan komposisi 70% (training), 15% (validatio
 
 ## Model Architecture and Training
 
-Model ini menggunakan **Transfer Learning** dengan EfficientNetB0 sebagai base model:
+Model ini menggunakan **Transfer Learning** dengan MobileNetV2 sebagai base model:
 
 ### Model Configuration
 - **Base Model**:
